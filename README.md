@@ -1,108 +1,66 @@
 # 江财现经管校园生活助手
 
-江财现经管校园生活助手是一个面向学生的校园生活服务网站，整合新生指南、校园办事、常用路线、校园服务查询和小橘 AI 校园问答，帮助同学更快找到校园生活中常用的信息与流程。
+江财现经管校园生活助手是一个面向江西财经大学现代经济管理学院学生的校园生活服务平台，聚焦新生入学、校园办事、生活服务和校园 AI 问答等高频场景，帮助同学更快找到需要的信息，更顺畅地适应和使用校园服务。
 
-在线访问：<https://campus-life-assistant.vercel.app>
+在线体验：<https://campus-life-assistant.vercel.app>
 
-## 项目功能
+## 项目定位
 
-- 首页：提供校园服务入口、搜索入口和项目导航。
-- 新生指南：整理入学、生活、校园路线等新生常用信息。
-- 校园办事：展示校园卡、请假、电费、报修、成绩查询、校园网/VPN 等事务流程。
-- 小橘校园助手：通过前端聊天面板调用后端接口，再由后端安全请求 Coze Bot。
-- 登录/注册/个人中心：使用前端本地存储模拟基础账号与资料管理流程。
-- Vercel 部署：使用 Serverless Function 隐藏 Coze Token，前端统一请求 `/api/chat`。
+这个项目不是单纯的信息展示页，而是一个围绕真实校园生活问题整理出来的轻量化服务入口。它希望把分散在通知、手册、流程说明和同学经验里的信息，整理成学生更容易理解和使用的网页。
 
-## 技术栈
+项目主要面向：
+
+- 刚入学、需要快速熟悉校园的新生
+- 需要查询办事流程、地点、材料的在校学生
+- 想快速了解校园生活服务入口的同学
+- 希望通过 AI 问答获得校园信息指引的用户
+
+## 核心功能
+
+- 新生指南：整理报到、生活、校园设施、常用地点等入学相关内容。
+- 校园办事：提供校园卡、请假、电费、报修、成绩查询、校园网/VPN 等事务说明。
+- 路线与图片指引：用图片辅助展示校园地点和办事路线，降低查找成本。
+- 小橘校园助手：通过 AI 问答方式回答学生手册、校园流程和生活服务相关问题。
+- 登录与个人中心：提供基础账号、个人资料等前端模拟功能，为后续扩展预留入口。
+- 关于项目：说明项目背景、建设思路、技术方案和后续规划。
+
+## 项目特色
+
+- 面向真实学生需求：内容围绕校园生活中常见、具体、可落地的问题组织。
+- 信息结构清晰：将新生指南、校园办事、AI 问答等模块分开呈现，方便快速查找。
+- 校园视觉风格：界面采用温暖、轻量、校园感较强的设计语言。
+- AI 能力接入：前端通过统一接口调用后端服务，再由后端安全请求 Coze API。
+- 适合静态站部署：主体页面为 HTML/CSS/JavaScript，后端接口使用 Vercel Serverless Function。
+
+## 技术实现
 
 - 前端：HTML、CSS、JavaScript
-- 后端接口：Vercel Serverless Function / Node.js
-- AI 能力：Coze API
+- AI 问答：Coze Bot
+- 后端接口：Node.js / Vercel Serverless Function
 - 部署平台：Vercel
+- 数据来源：学生手册、校园办事资料、校园服务信息和项目整理内容
 
-## 项目结构
+## 页面结构
 
-```text
-.
-├── api/
-│   └── chat.js              # Vercel Serverless Function，负责安全调用 Coze API
-├── css/
-│   └── style.css            # 全站样式
-├── images/
-│   └── vercel-assets/       # 部署用图片资源
-├── js/
-│   ├── common.js            # 公共导航、小橘助手等逻辑
-│   ├── main.js              # 首页逻辑
-│   ├── guide.js             # 新生指南逻辑
-│   ├── service.js           # 校园办事页逻辑
-│   └── auth.js              # 登录注册相关逻辑
-├── index.html               # 首页
-├── guide.html               # 新生指南
-├── service.html             # 校园办事
-├── about.html               # 关于项目
-├── login.html               # 登录页
-├── register.html            # 注册页
-├── profile.html             # 个人中心
-├── vercel.json              # Vercel 部署配置
-└── package.json             # 项目脚本配置
-```
-
-## 本地运行
-
-本项目的聊天接口依赖 Vercel 本地开发环境，建议使用 `vercel dev` 启动，不要直接双击 HTML 文件测试小橘助手。
-
-```powershell
-cd D:\campus-life-assistant
-npx vercel dev
-```
-
-启动后访问：
-
-```text
-http://localhost:3000
-```
-
-## 环境变量
-
-本地开发时，在项目根目录创建 `.env.local`：
-
-```env
-COZE_API_TOKEN=你的 Coze API Token
-COZE_BOT_ID=你的 Coze Bot ID
-COZE_API_BASE_URL=https://api.coze.cn
-```
-
-线上部署时，需要在 Vercel 项目后台配置同名环境变量：
-
-```text
-COZE_API_TOKEN
-COZE_BOT_ID
-COZE_API_BASE_URL
-```
-
-如果使用海外 Coze 服务，`COZE_API_BASE_URL` 可能需要改为：
-
-```text
-https://api.coze.com
-```
+- `index.html`：首页
+- `guide.html`：新生指南
+- `service.html`：校园办事
+- `about.html`：关于项目
+- `login.html` / `register.html`：登录与注册
+- `profile.html`：个人中心
+- `api/chat.js`：AI 问答接口
 
 ## 安全说明
 
-- 不要把 `.env`、`.env.local`、`server/.env` 上传到 GitHub。
-- Coze Token 只能放在本地环境变量或 Vercel 后台环境变量里。
-- 前端代码不能直接写 Coze Token。
-- 当前前端统一请求 `/api/chat`，由 `api/chat.js` 在服务端读取环境变量并调用 Coze API。
+项目不会在前端代码中暴露 Coze Token。AI 问答所需的 Token、Bot ID 等敏感配置应放在服务端环境变量中，由后端接口统一调用 Coze API。
 
-## Vercel 部署步骤
+## 后续规划
 
-1. 将项目推送到 GitHub。
-2. 在 Vercel 中导入 GitHub 仓库。
-3. Framework Preset 选择 `Other` 或保持默认。
-4. Root Directory 保持项目根目录。
-5. 在 Vercel 的 Environment Variables 中添加 `COZE_API_TOKEN`、`COZE_BOT_ID`、`COZE_API_BASE_URL`。
-6. 触发部署。
-7. 部署完成后打开 Vercel 提供的网址测试页面与小橘助手。
+- 增加更多校园生活模块，如失物招领、校园墙、二手交易等。
+- 优化移动端体验，让手机访问更顺畅。
+- 接入更完整的数据管理能力，减少静态内容维护成本。
+- 持续补充真实校园服务信息，让问答和办事指引更准确。
 
-## 当前说明
+## 项目说明
 
-当前仓库是适合 Vercel 部署的轻量版本，包含网站运行所需页面、脚本、样式、Serverless API 和已适配的图片资源。部分原始大文件资料没有放入仓库，以减少部署体积并提升上传稳定性。
+本仓库为适合线上部署的轻量版本，保留网站运行所需的页面、样式、脚本、AI 接口和图片资源。部分原始大文件资料未放入仓库，以减少体积并提升部署稳定性。

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 江财现经管校园生活助手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="login-body">
+    <header class="site-header">
+        <nav class="navbar" aria-label="主导航">
+            <a class="brand" href="index.html" aria-label="江财现经管校园生活助手首页">
+                <img src="images/vercel-assets/asset-001.png" alt="江财现经管校园生活助手 Logo" class="brand-logo">
+                <span class="brand-text">江财现经管校园生活助手</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="guide.html">新生指南</a>
+                <a href="service.html">校园办事</a>
+                <a href="about.html">关于项目</a>
+            </div>
+
+            <div class="nav-actions">
+                <a class="text-link active" href="login.html">登录</a>
+                <a class="btn btn-small" href="register.html">注册</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-page" aria-labelledby="login-title">
+            <div class="auth-showcase">
+                <p class="eyebrow">欢迎回来</p>
+                <h1 id="login-title">欢迎回到校园生活助手</h1>
+                <p class="auth-subtitle">你的校园生活与服务，一站式陪伴每一步成长。</p>
+
+                <div class="login-feature-list" aria-label="登录页说明">
+                    <article class="login-feature">
+                        <span class="login-feature-icon">心</span>
+                        <div>
+                            <strong>贴心服务</strong>
+                            <p>覆盖学习、生活、事务全场景。</p>
+                        </div>
+                    </article>
+                    <article class="login-feature">
+                        <span class="login-feature-icon icon-warm">办</span>
+                        <div>
+                            <strong>高效便捷</strong>
+                            <p>常用功能一站直达，省时省心。</p>
+                        </div>
+                    </article>
+                    <article class="login-feature">
+                        <span class="login-feature-icon icon-safe">盾</span>
+                        <div>
+                            <strong>安全可靠</strong>
+                            <p>多重保护，守护你的信息安全。</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="login-note">
+                    <span>告</span>
+                    <div>
+                        <strong>校园小贴士</strong>
+                        <p>定期修改密码，保护账户安全；遇到问题可联系信息化服务中心。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-card">
+                <div class="auth-card-heading">
+                    <p class="eyebrow">账号登录</p>
+                    <h2>进入校园生活助手</h2>
+                </div>
+
+                <div class="auth-mode-actions" aria-label="登录方式">
+                    <button class="auth-mode-button active" id="accountLoginTab" type="button" data-login-mode="account">学号密码登录</button>
+                    <button class="auth-mode-button" id="phoneLoginTab" type="button" data-login-mode="phone">手机号验证码登录</button>
+                </div>
+
+                <section class="auth-login-panel active" id="accountLoginPanel" aria-labelledby="accountLoginTab">
+                    <form id="loginForm" class="auth-form" novalidate>
+                        <div class="form-group">
+                            <label for="loginAccount">学号</label>
+                            <input id="loginAccount" name="account" type="text" inputmode="numeric" autocomplete="username" placeholder="请输入 9 位学号">
+                            <p class="field-error" data-error-for="loginAccount"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPassword">密码</label>
+                            <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="请输入至少 6 位数字或字母">
+                            <p class="field-error" data-error-for="loginPassword"></p>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="check-line" for="rememberLogin">
+                                <input id="rememberLogin" name="remember" type="checkbox">
+                                <span>记住我</span>
+                            </label>
+                            <button class="text-button" id="fillDemoAccount" type="button">填入体验账号</button>
+                        </div>
+
+                        <p class="form-message" id="loginMessage" role="status" aria-live="polite"></p>
+
+                        <button class="btn auth-submit" type="submit">登录</button>
+                    </form>
+                </section>
+
+                <section class="auth-login-panel" id="phoneLoginPanel" aria-labelledby="phoneLoginTab" hidden>
+                    <form id="phoneLoginForm" class="auth-form" novalidate>
+                        <div class="form-group">
+                            <label for="phoneLoginNumber">手机号</label>
+                            <input id="phoneLoginNumber" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="请输入已绑定的手机号">
+                            <p class="field-error" data-error-for="phoneLoginNumber"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phoneLoginCode">验证码</label>
+                            <div class="verification-row">
+                                <input id="phoneLoginCode" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="请输入 6 位验证码">
+                                <button class="btn btn-secondary" id="sendLoginCode" type="button">发送验证码</button>
+                            </div>
+                            <p class="field-error" data-error-for="phoneLoginCode"></p>
+                        </div>
+
+                        <label class="check-line" for="rememberPhoneLogin">
+                            <input id="rememberPhoneLogin" name="rememberPhone" type="checkbox">
+                            <span>记住我</span>
+                        </label>
+
+                        <p class="form-message" id="phoneLoginMessage" role="status" aria-live="polite"></p>
+
+                        <button class="btn auth-submit" type="submit">验证码登录</button>
+                    </form>
+                </section>
+
+                <div class="auth-switch">
+                    <span>还没有账号？</span>
+                    <a href="register.html">去注册</a>
+                </div>
+
+                <div class="demo-account">
+                    <strong>体验账号</strong>
+                    <span>学号：202500001</span>
+                    <span>密码：123456</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="images/vercel-assets/asset-001.png" alt="江财现经管校园生活助手 Logo" class="footer-logo">
+                <div>
+                    <p>整合新生指南、校园办事和常用校园信息，陪你更轻松地适应校园生活。</p>
+                </div>
+            </div>
+
+            <div class="footer-links" aria-label="页脚快捷入口">
+                <a href="index.html">首页</a>
+                <a href="guide.html">新生指南</a>
+                <a href="service.html">校园办事</a>
+                <a href="about.html">关于项目</a>
+            </div>
+
+            <div class="footer-contact">
+                <span>联系邮箱：<a href="mailto:3098667849@qq.com">3098667849@qq.com</a></span>
+                <span>信息仅供参考，具体安排以学校最新通知为准。</span>
+                <span>Copyright © 江财现经管校园生活助手</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

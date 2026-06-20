@@ -2,7 +2,10 @@
 
 江财现经管校园生活助手是一个面向江西财经大学现代经济管理学院学生的校园生活服务平台，聚焦新生入学、校园办事、生活服务和校园 AI 问答等高频场景，帮助同学更快找到需要的信息，更顺畅地适应和使用校园服务。
 
-在线体验：<https://campus-life-assistant.vercel.app>
+在线体验：
+
+- 智能体完整版：<https://campus-life-assistant.vercel.app>
+- GitHub Pages 静态版：<https://hi-bro2026.github.io/campus-life-assistant/>
 
 ## 项目定位
 
@@ -37,7 +40,7 @@
 - 前端：HTML、CSS、JavaScript
 - AI 问答：Coze Bot
 - 后端接口：Node.js / Vercel Serverless Function
-- 部署平台：Vercel
+- 部署平台：Vercel（智能体后端版）+ GitHub Pages（静态版）
 - 数据来源：学生手册、校园办事资料、校园服务信息和项目整理内容
 
 ## 页面结构
@@ -53,6 +56,8 @@
 ## 安全说明
 
 项目不会在前端代码中暴露 Coze Token。AI 问答所需的 Token、Bot ID 等敏感配置应放在服务端环境变量中，由后端接口统一调用 Coze API。
+
+GitHub Pages 静态版通过 `.github/workflows/pages.yml` 自动发布，构建脚本只打包 HTML、CSS、JS、图片和下载资源，不会把 `.env.local`、`.vercel`、`api/`、`server/` 等后端或本地配置目录放入 Pages 产物。静态版页面中的小橘校园助手会调用 Vercel 上的 `/api/chat` 后端接口。
 
 ## 后续规划
 

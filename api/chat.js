@@ -3,6 +3,11 @@ const path = require("path");
 
 loadLocalEnvFiles();
 module.exports = async function handler(req, res) {
+  applyCorsHeaders(req, res);
+
+  if (req.method === "OPTIONS") {
+    return res.status(204).end();
+  }
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method not allowed" });
@@ -182,4 +187,39 @@ function loadLocalEnvFiles() {
 }
 function normalizeBaseUrl(value) {
   return String(value || "https://api.coze.com").replace(/\/+$/, "");
+}
+
+function applyCorsHeaders(req, res) {
+  const origin = req.headers.origin || "";
+  const allowedOrigin = getAllowedOrigin(origin);
+
+  if (allowedOrigin) {
+    res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+    res.setHeader("Vary", "Origin");
+  }
+
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Max-Age", "86400");
+}
+
+function getAllowedOrigin(origin) {
+  if (!origin) {
+    return "";
+  }
+
+  const configuredOrigin = normalizeBaseUrl(process.env.STATIC_SITE_ORIGIN || "");
+  if (configuredOrigin && origin === configuredOrigin) {
+    return origin;
+  }
+
+  if (/^https:\/\/[a-z0-9-]+\.github\.io$/i.test(origin)) {
+    return origin;
+  }
+
+  if (origin === "https://campus-life-assistant.vercel.app") {
+    return origin;
+  }
+
+  return "";
 }

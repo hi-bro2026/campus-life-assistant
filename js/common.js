@@ -1562,6 +1562,17 @@
             });
         }
 
+        function getChatApiUrl() {
+            if (window.CAMPUS_CHAT_API_URL) {
+                return window.CAMPUS_CHAT_API_URL;
+            }
+
+            if (window.location.hostname.slice(-10) === ".github.io") {
+                return "https://campus-life-assistant.vercel.app/api/chat";
+            }
+
+            return "/api/chat";
+        }
         function requestAgentReply(message, botMessage) {
             var renderedText = "";
             var pendingText = "";
@@ -1603,7 +1614,7 @@
                 });
             }
 
-            return fetch("/api/chat", {
+            return fetch(getChatApiUrl(), {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

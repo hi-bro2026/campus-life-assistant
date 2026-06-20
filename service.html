@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园办事 - 江财现经管校园生活助手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="service-page">
+    <header class="site-header">
+        <nav class="navbar" aria-label="主导航">
+            <a class="brand" href="index.html" aria-label="江财现经管校园生活助手首页">
+                <img src="images/vercel-assets/asset-001.png" alt="江财现经管校园生活助手 Logo" class="brand-logo">
+                <span class="brand-text">江财现经管校园生活助手</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="guide.html">新生指南</a>
+                <a href="service.html" class="active">校园办事</a>
+                <a href="about.html">关于项目</a>
+            </div>
+            <div class="nav-actions">
+                <a class="text-link" href="login.html">登录</a>
+                <a class="btn btn-small" href="register.html">注册</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="service-hero" aria-labelledby="service-title">
+            <div class="service-hero-copy">
+                <p class="eyebrow">常见事务先查清楚</p>
+                <h1 id="service-title">校园办事</h1>
+                <p class="service-hero-intro">把校园卡、请假、电费/复电、报修、成绩、二课学分、校园网/VPN 和常用电话整理到一页，办理前先看地点、材料、时间和注意事项。</p>
+            </div>
+            <div class="service-hero-card" aria-label="办事页提示">
+                <div class="service-hero-top">
+                    <img src="images/vercel-assets/asset-010.jpg" alt="江财现经管校徽">
+                    <div>
+                        <span>办事提醒</span>
+                        <strong>先备材料，再去办理</strong>
+                    </div>
+                </div>
+                <div class="service-check-list">
+                    <span>确认办理地点</span>
+                    <span>带齐身份证明</span>
+                    <span>留意办公时间</span>
+                    <span>以最新通知为准</span>
+                </div>
+            </div>
+        </section>
+        <section class="service-tools section" aria-label="校园办事筛选">
+            <div class="service-filter-tabs" id="serviceCategoryTabs" role="tablist" aria-label="办事分类">
+                <button class="active" type="button" data-category="全部">全部</button>
+                <button type="button" data-category="证件卡务">证件卡务</button>
+                <button type="button" data-category="生活事务">生活事务</button>
+                <button type="button" data-category="学习事务">学习事务</button>
+            </div>
+            <p class="service-filter-status" id="serviceFilterStatus" role="status" aria-live="polite"></p>
+        </section>
+        <section class="section service-layout" aria-label="校园办事事项列表和详情">
+            <div>
+                <div class="section-heading compact">
+                    <p class="eyebrow">办事事项</p>
+                    <h2>选择你要办理的事务</h2>
+                </div>
+                <div class="service-card-grid" id="serviceCardList"></div>
+                <div class="service-empty" id="serviceEmpty" hidden>
+                    <strong>暂时没有找到对应事项</strong>
+                    <p>当前分类下暂无事项，可以切换到其他分类查看。</p>
+                </div>
+            </div>
+            <aside class="service-detail-panel" id="serviceDetailPanel" aria-labelledby="serviceDetailTitle">
+                <p class="eyebrow">办理详情</p>
+                <h2 id="serviceDetailTitle">请选择左侧事项</h2>
+                <p class="service-detail-summary">点击任意办事卡片后，这里会显示办理地点、材料、时间和注意事项。</p>
+            </aside>
+        </section>
+        <section class="section service-contact-section" aria-labelledby="service-contact-title">
+            <div class="section-heading compact service-contact-heading">
+                <p class="eyebrow">常用电话速查</p>
+                <h2 id="service-contact-title">宿舍与后勤联系电话</h2>
+                <p>宿舍复电请先登录掌上学工系统线上登记；宿舍报修请先登录后勤服务系统线上登记，若遇紧急情况可联系相关负责人。</p>
+            </div>
+            <div class="service-contact-grid">
+                <article class="service-contact-card">
+                    <h3>生活设备</h3>
+                    <ul class="service-contact-list">
+                        <li><span>BOT 热水</span><em>刘师傅</em><a href="tel:18720259970">18720259970</a></li>
+                        <li><span>BOT 直饮水</span><em>曾师傅</em><a href="tel:18507089925">18507089925</a></li>
+                        <li><span>空调</span><em>万师傅</em><a href="tel:13970933338">13970933338</a></li>
+                        <li><span>吹风机</span><em>严师傅</em><a href="tel:13979191133">13979191133</a></li>
+                        <li><span>自动售卖机</span><em>杨师傅</em><a href="tel:13970939297">13970939297</a></li>
+                        <li><span>洗衣机</span><em>王师傅</em><a href="tel:15970674958">15970674958</a></li>
+                        <li><span>智能锁相关</span><em>曾经理</em><a href="tel:19070259330">19070259330</a></li>
+                    </ul>
+                </article>
+                <article class="service-contact-card">
+                    <h3>宿管电话</h3>
+                    <ul class="service-contact-list">
+                        <li><span>尚德西门宿管</span><em>吉师傅</em><a href="tel:18370126598">18370126598</a></li>
+                        <li><span>尚德东门宿管</span><em>代师傅</em><a href="tel:15179220519">15179220519</a></li>
+                        <li><span>尚智西门宿管</span><em>淦师傅</em><a href="tel:18172933127">18172933127</a></li>
+                        <li><span>尚智东门宿管</span><em>朱师傅</em><a href="tel:13970230568">13970230568</a></li>
+                        <li><span>尚信宿管</span><em>周师傅</em><a href="tel:17379276986">17379276986</a></li>
+                        <li><span>尚敏宿管</span><em>何师傅</em><a href="tel:18079229989">18079229989</a></li>
+                        <li><span>尚廉宿管</span><em>何师傅</em><a href="tel:13966693891">13966693891</a></li>
+                        <li><span>尚毅宿管</span><em>淦师傅</em><a href="tel:13870204130">13870204130</a></li>
+                    </ul>
+                </article>
+                <article class="service-contact-card">
+                    <h3>维修与监管</h3>
+                    <ul class="service-contact-list">
+                        <li><span>物业维修监督</span><em>龚经理</em><a href="tel:13803501568">13803501568</a></li>
+                        <li><span>BOT 监管中心</span><em>王老师</em><a href="tel:18070516729">18070516729</a></li>
+                        <li><span>水电保障中心</span><em>巴老师</em><a href="tel:15170885188">15170885188</a></li>
+                        <li><span>土建维修中心</span><em>柴老师</em><a href="tel:13755210559">13755210559</a></li>
+                    </ul>
+                </article>
+                <article class="service-contact-card">
+                    <h3>安全与学工</h3>
+                    <ul class="service-contact-list">
+                        <li><span>保卫处负责人</span><em>李老师</em><a href="tel:18581741996">18581741996</a></li>
+                        <li><span>学工部负责人</span><em>柯老师</em><a href="tel:18829138897">18829138897</a></li>
+                    </ul>
+                </article>
+            </div>
+            <p class="service-contact-source">资料来源：党委学生工作部制。电话信息请以学校最新通知为准。</p>
+        </section>
+        <section class="section service-reminder" aria-labelledby="service-reminder-title">
+            <div>
+                <p class="eyebrow">温馨提示</p>
+                <h2 id="service-reminder-title">办理前再确认一次</h2>
+            </div>
+            <p>本页为校园办事参考指南，适合日常查询；实际办理地点、材料、时间与流程请以学院、辅导员、教务系统或学校最新通知为准。</p>
+        </section>
+        <aside class="campus-pet-assistant" id="campusPetAssistant" data-pet-owner="service" aria-label="小橘校园问答">
+            <section class="pet-chat-panel" id="campusPetChat" aria-hidden="true" aria-labelledby="petChatTitle">
+                <div class="pet-chat-header" id="petChatHeader">
+                    <div class="pet-chat-brand-mark" aria-hidden="true"><span></span></div>
+                    <div class="pet-chat-title-block">
+                        <span>小橘校园助手</span>
+                        <h2 id="petChatTitle">校园问答</h2>
+                    </div>
+                    <button class="pet-chat-close" id="petChatClose" type="button" aria-label="关闭校园问答">×</button>
+                </div>
+                <div class="pet-chat-messages" id="petChatMessages" aria-live="polite">
+                    <div class="pet-message pet-message-bot">
+                        <img class="pet-message-avatar" src="images/vercel-assets/asset-011.png" alt="小橘学长头像">
+                        <div class="pet-message-body">
+                            <p>你好呀同学，我是小橘学长喵～</p>
+                            <p>新生报到、校园生活、学习事务、办事流程、学生手册和学校政策相关问题，都可以来问我。别急，我帮你慢慢捋清楚喵。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pet-chat-suggestions" aria-label="常用问题">
+                    <div class="pet-suggestion-title"><span aria-hidden="true">☆</span>猜你想问</div>
+                    <div class="pet-suggestion-list">
+                        <button class="tone-green" type="button" data-pet-question="校园卡丢了怎么办"><span aria-hidden="true">▰</span>校园卡丢了怎么办</button>
+                        <button class="tone-amber" type="button" data-pet-question="宿舍停电怎么处理"><span aria-hidden="true">▾</span>宿舍停电怎么处理</button>
+                        <button class="tone-blue" type="button" data-pet-question="成绩怎么查询"><span aria-hidden="true">▮</span>成绩怎么查询</button>
+                        <button class="tone-purple" type="button" data-pet-question="请假流程怎么走"><span aria-hidden="true">▣</span>请假流程怎么走</button>
+                        <button class="tone-red" type="button" data-pet-question="新生报到要带什么"><span aria-hidden="true">▤</span>新生报到要带什么</button>
+                    </div>
+                </div>
+                <form class="pet-chat-form" id="petChatForm">
+                    <div class="pet-chat-input-shell">
+                        <span class="pet-input-face" aria-hidden="true"></span>
+                        <input id="petChatInput" type="text" placeholder="问问小橘校园问题..." autocomplete="off" aria-label="输入校园问题">
+                        <span class="pet-input-image" aria-hidden="true"></span>
+                    </div>
+                    <button type="submit">发送</button>
+                </form>
+                <p class="pet-chat-privacy">小橘会保护你的隐私，请放心提问哦～</p>
+                <div class="pet-resize-handle resize-n" data-resize-edge="n" aria-hidden="true"></div>
+                <div class="pet-resize-handle resize-e" data-resize-edge="e" aria-hidden="true"></div>
+                <div class="pet-resize-handle resize-s" data-resize-edge="s" aria-hidden="true"></div>
+                <div class="pet-resize-handle resize-w" data-resize-edge="w" aria-hidden="true"></div>
+                <div class="pet-resize-handle resize-ne" data-resize-edge="ne" aria-hidden="true"></div>
+                <div class="pet-resize-handle resize-se" data-resize-edge="se" aria-hidden="true"></div>
+                <div class="pet-resize-handle resize-sw" data-resize-edge="sw" aria-hidden="true"></div>
+                <div class="pet-resize-handle resize-nw" data-resize-edge="nw" aria-hidden="true"></div>
+            </section>
+            <button class="pet-toggle" id="campusPetToggle" type="button" aria-label="打开小橘校园问答">
+                <img id="campusPetImage" src="images/vercel-assets/asset-012.png" alt="小橘猫校园助手" draggable="false">
+            </button>
+        </aside>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="images/vercel-assets/asset-001.png" alt="江财现经管校园生活助手 Logo" class="footer-logo">
+                <div>
+                    <p>整合新生指南、校园办事和常用校园信息，陪你更轻松地适应校园生活。</p>
+                </div>
+            </div>
+
+            <div class="footer-links" aria-label="页脚快捷入口">
+                <a href="index.html">首页</a>
+                <a href="guide.html">新生指南</a>
+                <a href="service.html">校园办事</a>
+                <a href="about.html">关于项目</a>
+            </div>
+
+            <div class="footer-contact">
+                <span>联系邮箱：<a href="mailto:3098667849@qq.com">3098667849@qq.com</a></span>
+                <span>信息仅供参考，具体安排以学校最新通知为准。</span>
+                <span>Copyright © 江财现经管校园生活助手</span>
+            </div>
+        </div>
+    </footer>
+    <script src="js/common.js"></script>
+    <script src="js/service.js"></script>
+</body>
+</html>

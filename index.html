@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>江财现经管校园生活助手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="主导航">
+            <a class="brand" href="index.html" aria-label="江财现经管校园生活助手首页">
+                <img src="images/vercel-assets/asset-001.png" alt="江财现经管校园生活助手 Logo" class="brand-logo">
+                <span class="brand-text">江财现经管校园生活助手</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="active">首页</a>
+                <a href="guide.html">新生指南</a>
+                <a href="service.html">校园办事</a>
+                <a href="about.html">关于项目</a>
+            </div>
+
+            <div class="nav-actions">
+                <a class="text-link" href="login.html">登录</a>
+                <a class="btn btn-small" href="register.html">注册</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="home-showcase-bg">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <p class="eyebrow">面向学生的一站式校园生活服务平台</p>
+                <h1 id="hero-title">让校园生活更简单、更温暖</h1>
+                <p class="hero-subtitle" id="welcomeText">整合校园信息与服务，助你轻松学习、快乐生活。</p>
+
+                <form class="search-panel" id="serviceSearch" autocomplete="off">
+                    <label class="sr-only" for="searchInput">搜索校园服务</label>
+                    <input id="searchInput" type="search" placeholder="搜索你需要的服务，如：请假流程 / 图书馆 / 校园卡">
+                    <button class="btn" type="submit">搜索服务</button>
+                </form>
+
+                <div class="hero-actions">
+                    <a class="btn" href="#features">立即探索</a>
+                    <a class="btn btn-secondary" href="guide.html">查看指南</a>
+                </div>
+                <p class="search-result" id="searchResult" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="section" id="features" aria-labelledby="features-title">
+            <div class="section-heading">
+                <p class="eyebrow">核心功能</p>
+                <h2 id="features-title">常用校园服务入口</h2>
+            </div>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="card-icon icon-orange">新</div>
+                    <h3>新生指南</h3>
+                    <p>入学须知、报到流程、宿舍攻略，帮助新同学快速适应大学生活。</p>
+                    <a class="card-link" href="guide.html">进入指南</a>
+                </article>
+
+                <article class="feature-card">
+                    <div class="card-icon icon-green">办</div>
+                    <h3>校园办事</h3>
+                    <p>学生证补办、校园卡挂失、请假流程等事务，一次看清材料和地点。</p>
+                    <a class="card-link" href="service.html">查看办事</a>
+                </article>
+
+            </div>
+        </section>
+        </div>
+
+        <section class="section dashboard" aria-label="校园公告和快捷入口">
+            <div class="notice-panel">
+                <div class="section-heading compact">
+                    <p class="eyebrow">校园公告</p>
+                    <h2>近期提醒</h2>
+                </div>
+
+                <div class="notice-list">
+                    <button class="notice-item" type="button" data-notice="新生报到安排">
+                        <span class="notice-tag">新生</span>
+                        <span>新生报到流程整理：到校签到、宿舍入住、校园卡领取。</span>
+                    </button>
+                    <button class="notice-item" type="button" data-notice="校园卡服务">
+                        <span class="notice-tag warm">服务</span>
+                        <span>校园卡挂失与补办指南已收录，可在校园办事中查看。</span>
+                    </button>
+                    <button class="notice-item" type="button" data-notice="学习资源">
+                        <span class="notice-tag cool">学习</span>
+                        <span>图书馆、校园网、校园地图等常用入口正在持续补充。</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="quick-panel">
+                <div class="section-heading compact">
+                    <p class="eyebrow">快捷入口</p>
+                    <h2>高频服务</h2>
+                </div>
+
+                <div class="quick-grid">
+                    <a href="service.html?service=校园卡挂失#serviceDetailPanel">校园卡挂失</a>
+                    <a href="guide.html?route=library#campus-map">图书馆</a>
+                    <a href="service.html?service=校园网%2FVPN#serviceDetailPanel">校园网</a>
+                    <a href="guide.html#campus-map">校园地图</a>
+                </div>
+            </div>
+            <aside class="daily-card" aria-label="今日校园生活提示">
+                <img src="images/home-study-cat.png" alt="小橘猫在书桌前学习">
+                <div class="daily-card-copy">
+                    <span>今日提醒</span>
+                    <h2>今天也要元气满满哦！</h2>
+                    <p>查入口、看流程、找路线，校园小助手陪你把小事安排好。</p>
+                </div>
+                <strong class="daily-card-badge">加油！</strong>
+            </aside>
+        </section>
+
+        <section class="section highlights" aria-labelledby="highlights-title">
+            <div class="section-heading">
+                <p class="eyebrow">项目亮点</p>
+                <h2 id="highlights-title">从真实校园需求出发</h2>
+            </div>
+
+            <div class="highlight-grid">
+                <article>
+                    <strong>信息整合</strong>
+                    <p>把分散的新生指南、办事流程、学习入口集中到同一个网站。</p>
+                </article>
+                <article>
+                    <strong>前端实现</strong>
+                    <p>使用 HTML、CSS、JavaScript 与 LocalStorage 完成页面展示、登录注册和基础交互。</p>
+                </article>
+                <article>
+                    <strong>持续迭代</strong>
+                    <p>后续可扩展反馈表单、待办工具、真实账号和后台管理能力。</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="images/vercel-assets/asset-001.png" alt="江财现经管校园生活助手 Logo" class="footer-logo">
+                <div>
+                    <p>整合新生指南、校园办事和常用校园信息，陪你更轻松地适应校园生活。</p>
+                </div>
+            </div>
+
+            <div class="footer-links" aria-label="页脚快捷入口">
+                <a href="index.html">首页</a>
+                <a href="guide.html">新生指南</a>
+                <a href="service.html">校园办事</a>
+                <a href="about.html">关于项目</a>
+            </div>
+
+            <div class="footer-contact">
+                <span>联系邮箱：<a href="mailto:3098667849@qq.com">3098667849@qq.com</a></span>
+                <span>信息仅供参考，具体安排以学校最新通知为准。</span>
+                <span>Copyright © 江财现经管校园生活助手</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

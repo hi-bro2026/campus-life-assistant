@@ -1,0 +1,10 @@
+{
+  "name": "campus-life-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "vercel dev",
+    "check": "node --check api/chat.js && node --check js/common.js && node --check js/service.js"
+  },
+  "dependencies": {}
+}

@@ -1,12 +1,79 @@
 (function () {
+    initBaiduAnalytics();
+
+    function initBaiduAnalytics() {
+        var trackerIds = {
+            "hi-bro2026.github.io": "de7ae9746bc302a3c494d385796bbbfb",
+            "campus-life-assistant.vercel.app": "f67ebd9214762a03eb385469db21aeee"
+        };
+        var trackerId = trackerIds[window.location.hostname];
+
+        if (!trackerId || document.querySelector("script[data-baidu-tracker]")) {
+            return;
+        }
+
+        window._hmt = window._hmt || [];
+        var script = document.createElement("script");
+        script.src = "https://hm.baidu.com/hm.js?" + trackerId;
+        script.async = true;
+        script.setAttribute("data-baidu-tracker", trackerId);
+        document.head.appendChild(script);
+    }
     document.addEventListener("DOMContentLoaded", function () {
         updateNavActions();
+        initMobileNavigation();
         initSiteLikeButton();
         bindLogoutButton();
         initProfileForm();
         initProfileSecurityActions();
         initCampusPetAssistant();
     });
+
+    function initMobileNavigation() {
+        var navbar = document.querySelector(".navbar");
+        var toggle = document.querySelector(".nav-toggle");
+        var links = document.getElementById("primary-navigation");
+        if (!navbar || !toggle || !links) {
+            return;
+        }
+
+        function closeMenu() {
+            navbar.classList.remove("is-nav-open");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-label", "打开主导航");
+        }
+
+        toggle.addEventListener("click", function () {
+            var opening = toggle.getAttribute("aria-expanded") !== "true";
+            navbar.classList.toggle("is-nav-open", opening);
+            toggle.setAttribute("aria-expanded", opening ? "true" : "false");
+            toggle.setAttribute("aria-label", opening ? "关闭主导航" : "打开主导航");
+        });
+
+        links.addEventListener("click", function (event) {
+            if (event.target.closest("a")) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!navbar.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 780) {
+                closeMenu();
+            }
+        });
+    }
 
     var DEFAULT_PROFILE = {
         name: "校园生活助手用户",

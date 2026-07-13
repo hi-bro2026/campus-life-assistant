@@ -1,4 +1,4 @@
-﻿$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Stop"
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $outputDir = Join-Path $projectRoot "_site"
@@ -20,4 +20,12 @@ foreach ($directory in $staticDirectories) {
     }
 }
 
+# Replace the Vercel tracker ID in static HTML with the GitHub Pages tracker ID.
+Get-ChildItem -LiteralPath $outputDir -Filter "*.html" -File | ForEach-Object {
+    $html = [System.IO.File]::ReadAllText($_.FullName)
+    $html = $html.Replace("f67ebd9214762a03eb385469db21aeee", "de7ae9746bc302a3c494d385796bbbfb")
+    [System.IO.File]::WriteAllText($_.FullName, $html, [System.Text.UTF8Encoding]::new($false))
+}
+
+# Baidu analytics ID for GitHub Pages is injected during the static build.
 New-Item -ItemType File -Path (Join-Path $outputDir ".nojekyll") -Force | Out-Null

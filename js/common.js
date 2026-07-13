@@ -1,24 +1,4 @@
 (function () {
-    initBaiduAnalytics();
-
-    function initBaiduAnalytics() {
-        var trackerIds = {
-            "hi-bro2026.github.io": "de7ae9746bc302a3c494d385796bbbfb",
-            "campus-life-assistant.vercel.app": "f67ebd9214762a03eb385469db21aeee"
-        };
-        var trackerId = trackerIds[window.location.hostname];
-
-        if (!trackerId || document.querySelector("script[data-baidu-tracker]")) {
-            return;
-        }
-
-        window._hmt = window._hmt || [];
-        var script = document.createElement("script");
-        script.src = "https://hm.baidu.com/hm.js?" + trackerId;
-        script.async = true;
-        script.setAttribute("data-baidu-tracker", trackerId);
-        document.head.appendChild(script);
-    }
     document.addEventListener("DOMContentLoaded", function () {
         updateNavActions();
         initMobileNavigation();
